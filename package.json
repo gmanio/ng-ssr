@@ -6,8 +6,9 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 -p 3000 --disable-host-check=true",
     "start:prod": "ng serve --prod --aot --host 0.0.0.0 -p 3000 --disable-host-check=true",
-    "build": "ng build --prod --aot --app 0 --output-hashing none",
-    "build:ssr": "ng build --prod --aot --app 1 --output-hashing none",
+    "start:server": "ng serve --prod --aot --app 1 --output-hashing none --host 0.0.0.0 -p 3000 --disable-host-check=true",
+    "build": "ng build --prod --build-optimizer --app 0",
+    "build:ssr": "ng build --aot --app 1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,6 +28,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.5",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
+    "preboot": "^5.1.7",
     "rxjs": "5.5.2",
     "zone.js": "^0.8.14"
   },
