@@ -1,13 +1,12 @@
-import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserPrebootModule } from 'preboot/src/browser/browser-preboot.module';
 import { RootRoutes } from './app.routes';
-
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './containers/etc/page-not-found.component';
+import { PrebootModule } from 'preboot';
 
 
 @NgModule({
@@ -16,13 +15,10 @@ import { PageNotFoundComponent } from './containers/etc/page-not-found.component
     PageNotFoundComponent
   ],
   imports: [
-    HttpClientModule,
-    RouterModule.forRoot(RootRoutes),
     BrowserModule.withServerTransition({ appId: 'ssr-angular' }),
-    BrowserPrebootModule.replayEvents()
-  ],
-  exports: [
-    RouterModule
+    PrebootModule.withConfig({ appRoot: 'app-root' }),
+    RouterModule.forRoot(RootRoutes),
+    HttpClientModule
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy }

@@ -3,17 +3,17 @@
 /* Server specific version of Zone.js */
 require('zone.js/dist/zone-node');
 import { enableProdMode } from '@angular/core';
+enableProdMode();
 import * as express from 'express';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-enableProdMode();
+
 
 /* The server bundle is loaded here, it's why you don't want a changing hash in it */
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main.bundle');
 
 /* Server-side rendering */
-function angularRouter(req, res) {
-
+const angularRouter = (req, res) => {
   /* Server-side rendering */
   res.render('index', { req, res });
 }
