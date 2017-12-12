@@ -1,0 +1,16 @@
+.box {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+
+  &.blue{
+    background: blue;
+  }
+  &.yellow{
+    background: yellow;
+  }
+  &.red{
+    background: red;
+  }
+}

@@ -1,3 +1,4 @@
+![ServerSideRendering](https://cloud.githubusercontent.com/assets/1016365/10639063/138338bc-7806-11e5-8057-d34c75f3cafc.png)
 # SsrAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0-rc.1.

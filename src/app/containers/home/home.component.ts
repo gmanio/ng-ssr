@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import 'rxjs/add/operator/shareReplay';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  public ask$: Observable<Object>;
+  public ask$: Observable<{ by, descendants }>;
 
   constructor(public http: HttpClient,
               public router: Router) {
   }
 
   ngOnInit() {
-    this.ask$ = this.http.get('https://hacker-news.firebaseio.com/v0/item/121003.json?print=pretty');
+    this.ask$ = this.http.get('https://hacker-news.firebaseio.com/v0/item/121003.json?print=pretty').shareReplay();
   }
 
   gotoTest() {
